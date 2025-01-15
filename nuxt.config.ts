@@ -6,20 +6,13 @@ export default defineNuxtConfig({
   build: {
     transpile: ['vuetify']
   },
-  modules: [
-    (_options, nuxt) => {
-      nuxt.hooks.hook('vite:extendConfig', (config) => {
-        // @ts-expect-error
-        config.plugins.push(vuetify({ autoImport: true }))
-      })
-    }
-    //...
-  ],
-  vite: {
-    vue: {
-      template: {
-        transformAssetUrls
-      }
+  modules: ['vuetify-nuxt-module'],
+  vuetify: {
+    moduleOptions: {
+      /* module specific options */
+    },
+    vuetifyOptions: {
+      /* vuetify options */
     }
   }
 })
